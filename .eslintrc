@@ -15,6 +15,14 @@
   "rules": {
     "indent": ["error", 2],
     "comma-dangle": ["error", "only-multiline"],
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ]
   }
 }
