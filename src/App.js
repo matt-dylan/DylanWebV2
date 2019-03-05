@@ -1,35 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { Paper, Button } from '@material-ui/core';
 
+import theme from './theme.js';
 import { Header, Footer } from './layout';
-// import { createMuiTheme } from '@material-ui/core/styles';
-// import indigo from '@material-ui/core/colors/indigo';
-// import red from '@material-ui/core/colors/red';
-
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: red,
-//     secondary: indigo,
-//   },
-// });
 
 function App() {
   const [count, setCount] = useState(1);
 
   return (
-    <div>
-      <Header />
-      <Paper>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setCount(count + 1)}
-        >
-          {count}
-        </Button>
-      </Paper>
-      <Footer />
-    </div>
+    <Fragment>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <Header />
+        {/* Move to another component */}
+        <main>
+          <Paper>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setCount(count + 1)}
+            >
+              {count}
+            </Button>
+          </Paper>
+        </main>
+        <Footer />
+      </MuiThemeProvider>
+    </Fragment>
   );
 }
 
