@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -18,9 +18,6 @@ function Header(props) {
         <IconButton color="inherit" aria-label="Menu">
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" color="inherit">
-          Dylan Whitlock
-        </Typography>
       </Toolbar>
     </AppBar>
   );
