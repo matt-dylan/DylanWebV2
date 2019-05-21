@@ -7,7 +7,17 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '300px',
+    paddingTop: '130px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '3em',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '2em',
+    },
+  },
+  flexRow: {
+    display: 'flex',
+    justifyContent: 'center',
   },
 });
 
@@ -20,19 +30,21 @@ function MainCanvas(props) {
       <Typography
         variant="h2"
         color="textPrimary"
-        align="justify"
+        align="center"
         className={classes.h4}
+        gutterBottom
       >
-        Dylan Whitlock
+        Matthew Dylan Whitlock
       </Typography>
-
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => setCount(count + 1)}
-      >
-        {count}
-      </Button>
+      <div className={classes.flexRow}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => setCount(count + 1)}
+        >
+          {count}
+        </Button>
+      </div>
     </main>
   );
 }
