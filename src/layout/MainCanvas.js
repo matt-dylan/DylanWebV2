@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Typography, withStyles } from '@material-ui/core';
+import { Button, Typography, withStyles, Fade } from '@material-ui/core';
 
 const styles = theme => ({
-  h4: {
+  h2: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  h3: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  paddingSpace: {
     paddingTop: '130px',
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '3em',
-    },
-    [theme.breakpoints.down('xs')]: {
-      fontSize: '2em',
-    },
   },
   flexRow: {
     display: 'flex',
@@ -23,26 +24,39 @@ const styles = theme => ({
 
 function MainCanvas(props) {
   const { classes } = props;
-  const [count, setCount] = useState(1);
+  const [checked, setChecked] = useState(true);
 
   return (
-    <main className="parallax">
-      <Typography
-        variant="h2"
-        color="textPrimary"
-        align="center"
-        className={classes.h4}
-        gutterBottom
-      >
-        Matthew Dylan Whitlock
-      </Typography>
+    <main className={'parallax'}>
+      <Fade in={checked} timeout={2000}>
+        <Typography
+          variant="h2"
+          color="textPrimary"
+          align="center"
+          className={classes.h2}
+          gutterBottom
+        >
+          Matthew Dylan Whitlock
+        </Typography>
+      </Fade>
+      <Fade in={checked} timeout={3000}>
+        <Typography
+          variant="h3"
+          color="textPrimary"
+          align="center"
+          className={classes.h3}
+          gutterBottom
+        >
+          Moscow, ID
+        </Typography>
+      </Fade>
       <div className={classes.flexRow}>
         <Button
           variant="contained"
           color="secondary"
-          onClick={() => setCount(count + 1)}
+          onClick={() => setChecked(!checked)}
         >
-          {count}
+          Hide
         </Button>
       </div>
     </main>

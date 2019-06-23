@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AppBar, Toolbar, IconButton } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Logo } from '../images';
+import { AppBar, Toolbar, IconButton, withStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = theme => ({
@@ -18,6 +18,7 @@ function Header(props) {
         <IconButton color="inherit" aria-label="Menu">
           <MenuIcon />
         </IconButton>
+        <img src={Logo} alt="Logo" />
       </Toolbar>
     </AppBar>
   );
