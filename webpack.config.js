@@ -11,6 +11,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './build',
+    open: true,
   },
   module: {
     rules: [

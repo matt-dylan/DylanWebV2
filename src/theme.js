@@ -21,6 +21,6 @@ let theme = createMuiTheme({
   },
 });
 
-theme = responsiveFontSizes(theme);
+theme = responsiveFontSizes(theme); //Responsive Fonts
 
 export default theme;
