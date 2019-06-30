@@ -60,7 +60,7 @@ function MainCanvas(props) {
           align="center"
           className={classes.flexCenter}
         >
-          "Welcome to the journey I call life!"
+          "Putting people first"
         </Typography>
       </Fade>
     </main>

@@ -20,6 +20,12 @@ const useStyles = makeStyles(theme => ({
   input: {
     display: 'none',
   },
+  typo: {
+    padding: theme.spacing(2),
+  },
+  btnGrid: {
+    padding: theme.spacing(2),
+  },
 }));
 
 const AboutContents = () => {
@@ -35,6 +41,7 @@ const AboutContents = () => {
           variant="h6"
           color="textSecondary"
           align="left"
+          className={classes.typo}
           gutterBottom
         >
           Specializes in Web development, with a working background in the
@@ -50,9 +57,10 @@ const AboutContents = () => {
           variant="h6"
           color="textSecondary"
           align="left"
+          className={classes.typo}
           gutterBottom
         >
-          Working as a Consultant at Fenway Group.
+          Developing technical solutions as a Consultant at Fenway Group.
         </Typography>
       </Paper>
 
@@ -64,23 +72,10 @@ const AboutContents = () => {
           variant="h6"
           color="textSecondary"
           align="left"
+          className={classes.typo}
           gutterBottom
         >
           B.S in Computer Science from Louisiana Tech University
-        </Typography>
-      </Paper>
-
-      <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
-        GPA
-      </Typography>
-      <Paper>
-        <Typography
-          variant="h6"
-          color="textSecondary"
-          align="left"
-          gutterBottom
-        >
-          3.0/4.0
         </Typography>
       </Paper>
       <Grid
@@ -88,6 +83,7 @@ const AboutContents = () => {
         direction="row"
         justify="center"
         alignItems="center"
+        className={classes.btnGrid}
         spacing={2}
       >
         <Button

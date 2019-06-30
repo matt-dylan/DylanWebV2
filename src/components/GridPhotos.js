@@ -23,7 +23,7 @@ const tileData = [
     img: DenverDylan,
     title: 'Denver Dylan',
     author: 'Dylan',
-    cols: 1,
+    cols: 2,
   },
   {
     img: UncleDylan,
@@ -35,7 +35,7 @@ const tileData = [
     img: Graduation,
     title: 'Graduation',
     author: 'Dylan',
-    cols: 3,
+    cols: 4,
   },
 ];
 
@@ -44,7 +44,7 @@ function GridPhotos() {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={300} className={classes.gridList} cols={3}>
+      <GridList cellHeight={300} className={classes.gridList} cols={4}>
         {tileData.map(tile => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
             <img src={tile.img} alt={tile.title} />

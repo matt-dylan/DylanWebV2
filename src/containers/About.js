@@ -13,6 +13,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.primary.main,
+    overflowX: 'hidden',
     paddingBottom: theme.spacing(3),
   },
   h2: {
