@@ -7,29 +7,35 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { AboutContents } from '../components';
+import { AboutContents, GridPhotos } from '../components';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    backgroundColor: theme.palette.primary.main,
+    paddingBottom: theme.spacing(3),
   },
   h2: {
     backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
   },
   grid: {
     backgroundColor: theme.palette.primary.main,
   },
   paper: {
-    padding: theme.spacing(2),
-    marginBottom: theme.spacing(2),
+    padding: theme.spacing(3),
+    marginBottom: theme.spacing(3),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+  },
+  button: {
+    margin: theme.spacing(1),
   },
 });
 
 function About(props) {
   const { classes } = props;
+
   return (
     <div className={classes.root}>
       <Paper>
@@ -45,14 +51,12 @@ function About(props) {
       <Grid container className={classes.grid} spacing={2}>
         <Grid item sm={6} xs={12}>
           <Container>
-            <Paper className={classes.paper}>
-              <AboutContents />
-            </Paper>
+            <AboutContents />
           </Container>
         </Grid>
         <Grid item sm={6} xs={12}>
           <Container>
-            <Paper className={classes.paper} />
+            <GridPhotos />
           </Container>
         </Grid>
       </Grid>

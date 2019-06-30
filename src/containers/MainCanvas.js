@@ -12,8 +12,8 @@ const styles = theme => ({
   },
   avatar: {
     margin: '0 auto 0.35em',
-    width: '90px',
-    height: '90px',
+    width: '190px',
+    height: '190px',
   },
   canvasParallax: {
     /* The image used */
