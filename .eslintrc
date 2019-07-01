@@ -15,6 +15,7 @@
   "rules": {
     "indent": ["error", 2],
     "quote-props": 0,
+    "no-unused-expressions": 0,
     "comma-dangle": ["error", "only-multiline"],
     "react-hooks/rules-of-hooks": "error",
     "space-before-function-paren": [

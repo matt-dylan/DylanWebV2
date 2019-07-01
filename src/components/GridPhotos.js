@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
+    marginTop: '35px',
     backgroundColor: theme.palette.background.paper,
     borderRadius: theme.spacing(1),
   },

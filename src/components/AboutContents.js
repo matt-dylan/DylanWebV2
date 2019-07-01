@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.secondary.dark,
     },
   },
+  paper: {
+    boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+  },
   input: {
     display: 'none',
   },
@@ -36,7 +39,7 @@ const AboutContents = () => {
       <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
         Profile
       </Typography>
-      <Paper>
+      <Paper className={classes.paper}>
         <Typography
           variant="h6"
           color="textSecondary"
@@ -52,7 +55,7 @@ const AboutContents = () => {
       <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
         Employment
       </Typography>
-      <Paper>
+      <Paper className={classes.paper}>
         <Typography
           variant="h6"
           color="textSecondary"
@@ -67,7 +70,7 @@ const AboutContents = () => {
       <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
         Education
       </Typography>
-      <Paper>
+      <Paper className={classes.paper}>
         <Typography
           variant="h6"
           color="textSecondary"

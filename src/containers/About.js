@@ -41,7 +41,7 @@ function About(props) {
     <div className={classes.root}>
       <Paper>
         <Typography
-          variant="h3"
+          variant="h2"
           color="textPrimary"
           align="center"
           className={classes.h2}

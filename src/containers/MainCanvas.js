@@ -41,7 +41,7 @@ function MainCanvas(props) {
     <main className={classes.canvasParallax}>
       <Fade in timeout={2000}>
         <Typography
-          variant="h3"
+          variant="h2"
           color="textPrimary"
           align="center"
           className={classes.flexCenter}
@@ -55,7 +55,7 @@ function MainCanvas(props) {
       </Fade>
       <Fade in timeout={5000}>
         <Typography
-          variant="h5"
+          variant="h4"
           color="textPrimary"
           align="center"
           className={classes.flexCenter}
