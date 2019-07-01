@@ -16,7 +16,7 @@ const styles = theme => ({
     overflowX: 'hidden',
     paddingBottom: theme.spacing(3),
   },
-  h2: {
+  h3: {
     backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(3),
   },
@@ -41,10 +41,10 @@ function About(props) {
     <div className={classes.root}>
       <Paper>
         <Typography
-          variant="h2"
+          variant="h3"
           color="textPrimary"
           align="center"
-          className={classes.h2}
+          className={classes.h3}
         >
           About
         </Typography>

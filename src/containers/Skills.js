@@ -32,7 +32,7 @@ const styles = theme => ({
     overflowX: 'hidden',
     paddingBottom: theme.spacing(3),
   },
-  h2: {
+  h3: {
     backgroundColor: theme.palette.secondary.main,
     padding: theme.spacing(2),
   },
@@ -41,7 +41,7 @@ const styles = theme => ({
   },
   grid: {
     backgroundColor: theme.palette.secondary.main,
-    padding: theme.spacing(1),
+    padding: theme.spacing(3),
   },
   card: {
     boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
@@ -125,7 +125,6 @@ function Skills(props) {
     var isVisible = elemTop >= 0 && elemBottom <= window.innerHeight;
     // Partially visible elements return true:
     isVisible = elemTop < window.innerHeight && elemBottom >= 0;
-    console.log(isVisible);
     // return isVisible;
     if (isVisible) {
       setChecked(isVisible);
@@ -148,18 +147,16 @@ function Skills(props) {
     <div className={classes.root}>
       <Paper>
         <Typography
-          variant="h2"
+          variant="h3"
           color="textPrimary"
           align="center"
-          className={classes.h2}
+          className={classes.h3}
         >
           Skills
         </Typography>
       </Paper>
-      {/* <Button onClick={handleGrow}>ClickME</Button> */}
       <Grid id="skillGrid" container className={classes.grid} spacing={3}>
         {skillItems.map((skill, i) => {
-          console.log(i);
           return (
             <Grid key={skill.title} item md={2} sm={3} xs={6}>
               <Grow
