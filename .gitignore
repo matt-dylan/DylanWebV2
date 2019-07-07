@@ -62,4 +62,5 @@ typings/
 
 .vscode
 .DS_Store
+build
 package-lock.json
