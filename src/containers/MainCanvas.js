@@ -23,7 +23,8 @@ const styles = theme => ({
     /* The image used */
     backgroundImage: `url(${Germany})`,
     /* Set a specific height */
-    minHeight: '100vh',
+    minHeight: 'calc(100vh - 64px)',
+    height: '100%',
     /* Create the parallax scrolling effect */
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',

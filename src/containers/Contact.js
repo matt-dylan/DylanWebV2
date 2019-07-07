@@ -27,18 +27,18 @@ const styles = theme => ({
   contactParallax: {
     /* The image used */
     backgroundImage: `url(${LaTech})`,
-    /* Set a specific height */
-    minHeight: '100vh',
     /* Create the parallax scrolling effect */
+    height: '100%',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     backgroundBlendMode: 'color',
     backgroundSize: 'cover',
+    padding: theme.spacing(7),
     [theme.breakpoints.down('md')]: {
       backgroundAttachment: 'scroll',
-      minHeight: '0px',
+      minHeight: '0',
       padding: theme.spacing(1),
     },
   },
@@ -49,11 +49,7 @@ const styles = theme => ({
     width: '300px',
     margin: 'auto',
     minWidth: '30%',
-    transform: 'translateY(20%)',
     paddingBottom: theme.spacing(4),
-    [theme.breakpoints.down('xs')]: {
-      transform: 'translateY(0%)',
-    },
   },
   avatar: {
     margin: theme.spacing(2),
