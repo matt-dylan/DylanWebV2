@@ -12,8 +12,12 @@ const styles = theme => ({
   },
   avatar: {
     margin: '0 auto 0.35em',
-    width: '190px',
-    height: '190px',
+    width: '225px',
+    height: '225px',
+    [theme.breakpoints.down('xs')]: {
+      width: '190px',
+      height: '190px',
+    },
   },
   canvasParallax: {
     /* The image used */
@@ -27,12 +31,12 @@ const styles = theme => ({
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     backgroundBlendMode: 'color',
     backgroundSize: 'cover',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       backgroundAttachment: 'scroll',
     },
   },
   wrapper: {
-    transform: 'translateY(50%)',
+    transform: 'translateY(calc(100vh - 90vh))',
   },
 });
 

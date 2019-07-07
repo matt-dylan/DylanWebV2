@@ -36,7 +36,7 @@ const styles = theme => ({
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     backgroundBlendMode: 'color',
     backgroundSize: 'cover',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       backgroundAttachment: 'scroll',
       minHeight: '0px',
       padding: theme.spacing(1),
@@ -56,8 +56,8 @@ const styles = theme => ({
     },
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.primary.dark,
+    margin: theme.spacing(2),
+    backgroundColor: theme.palette.primary.main,
   },
   textField: {
     color: theme.palette.primary.dark,
