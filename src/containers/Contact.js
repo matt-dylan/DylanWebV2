@@ -122,7 +122,7 @@ function Contact(props) {
       body: encode({ 'form-name': 'contactForm', ...form }),
     })
       .then(res => {
-        if (res.status !== 404) {
+        if (res.status === 404) {
           setError(true);
         } else {
           setSuccess(true);
