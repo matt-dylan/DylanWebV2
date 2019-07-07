@@ -144,7 +144,7 @@ function Skills(props) {
   }, []);
 
   return (
-    <div className={classes.root}>
+    <div id="Skills" className={classes.root}>
       <Paper>
         <Typography
           variant="h3"

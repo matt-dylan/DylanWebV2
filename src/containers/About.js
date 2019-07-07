@@ -38,7 +38,7 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <div className={classes.root}>
+    <div id="About" className={classes.root}>
       <Paper>
         <Typography
           variant="h3"

@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { PermContactCalendar } from '@material-ui/icons';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LaTech } from '../images';
 // import CircularIntegration from '../components/CircularIntegration';
 
@@ -22,15 +22,13 @@ const styles = theme => ({
     paddingBottom: theme.spacing(3),
   },
   h4: {
-    // backgroundColor: theme.palette.secondary.main,
     padding: theme.spacing(1),
   },
   contactParallax: {
     /* The image used */
     backgroundImage: `url(${LaTech})`,
     /* Set a specific height */
-    minHeight: '550px',
-    paddingTop: theme.spacing(8),
+    minHeight: '100vh',
     /* Create the parallax scrolling effect */
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
@@ -40,6 +38,8 @@ const styles = theme => ({
     backgroundSize: 'cover',
     [theme.breakpoints.down('xs')]: {
       backgroundAttachment: 'scroll',
+      minHeight: '0px',
+      padding: theme.spacing(1),
     },
   },
   paper: {
@@ -49,7 +49,11 @@ const styles = theme => ({
     width: '300px',
     margin: 'auto',
     minWidth: '30%',
+    transform: 'translateY(20%)',
     paddingBottom: theme.spacing(4),
+    [theme.breakpoints.down('xs')]: {
+      transform: 'translateY(0%)',
+    },
   },
   avatar: {
     margin: theme.spacing(1),
@@ -65,17 +69,75 @@ const styles = theme => ({
     margin: theme.spacing(1),
     color: theme.palette.primary.dark,
   },
+  messageSuccess: {
+    color: '#4caf50',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  messageError: {
+    color: '#f44336',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  center: {
+    margin: 'auto',
+    display: 'flex',
+  },
 });
 
 function Contact(props) {
   const { classes } = props;
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  });
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(event) {
-    console.log(event.target);
+  useEffect(() => {
+    setForm({
+      firstName: '',
+      lastName: '',
+      email: '',
+      message: '',
+    });
+    setTimeout(() => {
+      if (error) setError(false);
+      if (success) setSuccess(false);
+    }, 3000);
+  }, [success, error]);
+
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
+
+  function handleSubmit(e) {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ jsxForm: 'contactForm', ...form }),
+    })
+      .then(res => {
+        if (res.status !== 404) {
+          setError(true);
+        } else {
+          setSuccess(true);
+        }
+      })
+      .catch(error => {
+        setError(true);
+        console.log(error);
+      });
+
+    e.preventDefault();
   }
 
   return (
-    <div className={`${classes.root} ${classes.contactParallax}`}>
+    <div id="Contact" className={`${classes.root} ${classes.contactParallax}`}>
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
           <PermContactCalendar />
@@ -91,10 +153,12 @@ function Contact(props) {
         <form
           className={classes.form}
           onSubmit={handleSubmit}
+          name="contactForm"
           method="POST"
           data-netlify-recaptcha="true"
           data-netlify="true"
         >
+          <input type="hidden" name="jsxForm" value="contactForm" />
           <Container>
             <Grid container spacing={2} alignContent="center">
               <Grid item xs={12} sm={6}>
@@ -102,14 +166,20 @@ function Contact(props) {
                   InputProps={{
                     className: classes.textField,
                   }}
-                  autoComplete="fname"
-                  name="firstName"
-                  variant="filled"
-                  required
-                  fullWidth
                   id="firstName"
                   label="First Name"
-                  autoFocus
+                  name="firstName"
+                  autoComplete="fname"
+                  variant="filled"
+                  value={form.firstName}
+                  required
+                  fullWidth
+                  onChange={e => {
+                    let newValue = e.target.value;
+                    setForm(prevState => {
+                      return { ...prevState, firstName: newValue };
+                    });
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -117,13 +187,20 @@ function Contact(props) {
                   InputProps={{
                     className: classes.textField,
                   }}
-                  variant="filled"
-                  required
-                  fullWidth
                   id="lastName"
                   label="Last Name"
                   name="lastName"
                   autoComplete="lname"
+                  variant="filled"
+                  value={form.lastName}
+                  required
+                  fullWidth
+                  onChange={e => {
+                    let newValue = e.target.value;
+                    setForm(prevState => {
+                      return { ...prevState, lastName: newValue };
+                    });
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -131,13 +208,20 @@ function Contact(props) {
                   InputProps={{
                     className: classes.textField,
                   }}
-                  variant="filled"
-                  required
-                  fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  variant="filled"
+                  value={form.email}
+                  required
+                  fullWidth
+                  onChange={e => {
+                    let newValue = e.target.value;
+                    setForm(prevState => {
+                      return { ...prevState, email: newValue };
+                    });
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -145,24 +229,43 @@ function Contact(props) {
                   InputProps={{
                     className: classes.textField,
                   }}
-                  variant="filled"
-                  required
-                  rows="4"
-                  multiline
-                  fullWidth
                   id="message"
                   label="Message"
                   name="message"
+                  variant="filled"
+                  rows="4"
+                  value={form.message}
+                  multiline
+                  fullWidth
+                  required
+                  onChange={e => {
+                    let newValue = e.target.value;
+                    setForm(prevState => {
+                      return { ...prevState, message: newValue };
+                    });
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
+                {error && (
+                  <div className={classes.messageError}>
+                    Error no message sent!
+                  </div>
+                )}
+                {success && (
+                  <div className={classes.messageSuccess}>
+                    Thank you for contacting me!
+                  </div>
+                )}
+              </Grid>
+              <Grid item xs={12}>
                 <div data-netlify-recaptcha="true" />
-                {/* <CircularIntegration /> */}
                 <Button
                   variant="contained"
                   color="primary"
                   type="submit"
-                  style={{ margin: 'auto', display: 'flex' }}
+                  disabled={success || error}
+                  className={classes.center}
                 >
                   Submit
                 </Button>

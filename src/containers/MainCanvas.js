@@ -19,8 +19,7 @@ const styles = theme => ({
     /* The image used */
     backgroundImage: `url(${Germany})`,
     /* Set a specific height */
-    minHeight: '550px',
-    paddingTop: theme.spacing(14),
+    minHeight: '100vh',
     /* Create the parallax scrolling effect */
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
@@ -32,37 +31,42 @@ const styles = theme => ({
       backgroundAttachment: 'scroll',
     },
   },
+  wrapper: {
+    transform: 'translateY(50%)',
+  },
 });
 
 function MainCanvas(props) {
   const { classes } = props;
 
   return (
-    <main className={classes.canvasParallax}>
-      <Fade in timeout={2000}>
-        <Typography
-          variant="h2"
-          color="textPrimary"
-          align="center"
-          className={classes.flexCenter}
-          gutterBottom
-        >
-          Matthew Dylan Whitlock
-        </Typography>
-      </Fade>
-      <Fade in timeout={3500}>
-        <Avatar alt="Self Image" className={classes.avatar} src={SelfImage} />
-      </Fade>
-      <Fade in timeout={5000}>
-        <Typography
-          variant="h4"
-          color="textPrimary"
-          align="center"
-          className={classes.flexCenter}
-        >
-          "Putting people first"
-        </Typography>
-      </Fade>
+    <main id="Home" className={classes.canvasParallax}>
+      <div className={classes.wrapper}>
+        <Fade in timeout={2000}>
+          <Typography
+            variant="h2"
+            color="textPrimary"
+            align="center"
+            className={classes.flexCenter}
+            gutterBottom
+          >
+            Matthew Dylan Whitlock
+          </Typography>
+        </Fade>
+        <Fade in timeout={3500}>
+          <Avatar alt="Self Image" className={classes.avatar} src={SelfImage} />
+        </Fade>
+        <Fade in timeout={5000}>
+          <Typography
+            variant="h4"
+            color="textPrimary"
+            align="center"
+            className={classes.flexCenter}
+          >
+            "Putting people first"
+          </Typography>
+        </Fade>
+      </div>
     </main>
   );
 }

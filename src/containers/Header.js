@@ -18,20 +18,28 @@ import React, { useState } from 'react';
 import { AppDrawer } from '../components';
 import { Logo } from '../images';
 
-const drawerWidth = 200;
 const styles = theme => ({
   appBar: {
     padding: '0px',
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
+      width: 200,
       flexShrink: 0,
     },
   },
-  listItem: {
+  listIcon: {
+    color: theme.palette.secondary.main,
+    textDecoration: 'none',
     [theme.breakpoints.down('sm')]: {
       minWidth: '40px',
+    },
+  },
+  link: {
+    color: '#fff',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
     },
   },
 });
@@ -39,6 +47,10 @@ const styles = theme => ({
 function Header(props) {
   const { classes } = props;
   const [open, setOpen] = useState(false);
+
+  function scrollIntoView() {
+    window.location.hash = '';
+  }
 
   const toggleDrawer = open => event => {
     if (
@@ -64,12 +76,19 @@ function Header(props) {
           { text: 'Skills', icon: <ComputerIcon /> },
           { text: 'Contact', icon: <EmailIcon /> },
         ].map(item => (
-          <ListItem alignItems="center" button divider key={item.text}>
-            <ListItemIcon className={classes.listItem}>
-              {item.icon}
-            </ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItem>
+          <a
+            key={item.text}
+            href={`#${item.text}`}
+            className={classes.link}
+            onClick={scrollIntoView}
+          >
+            <ListItem alignItems="center" button divider>
+              <ListItemIcon className={classes.listIcon}>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          </a>
         ))}
       </List>
     </div>

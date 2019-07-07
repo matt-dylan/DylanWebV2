@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const styles = theme => ({
   sidebarStyle: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.main,
   },
 });
 
