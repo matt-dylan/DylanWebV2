@@ -13,6 +13,13 @@
     />
   <link rel="shortcut icon" href="/logo.png"></head>
   <body>
+    <form name="contactForm" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="text" name="message"></input>
+    </form>
+
     <div id="root"></div>
   <script type="text/javascript" src="/bundle.js"></script></body>
 </html>

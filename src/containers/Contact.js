@@ -119,7 +119,7 @@ function Contact(props) {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ jsxForm: 'contactForm', ...form }),
+      body: encode({ 'form-name': 'contactForm', ...form }),
     })
       .then(res => {
         if (res.status !== 404) {
@@ -152,13 +152,13 @@ function Contact(props) {
         </Typography>
         <form
           className={classes.form}
-          onSubmit={handleSubmit}
+          onSubmit={e => handleSubmit(e)}
           name="contactForm"
           method="POST"
           data-netlify-recaptcha="true"
           data-netlify="true"
         >
-          <input type="hidden" name="jsxForm" value="contactForm" />
+          <input type="hidden" name="form-name" value="contactForm" />
           <Container>
             <Grid container spacing={2} alignContent="center">
               <Grid item xs={12} sm={6}>
