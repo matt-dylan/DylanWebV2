@@ -37,7 +37,8 @@ const styles = theme => ({
     },
   },
   wrapper: {
-    transform: 'translateY(calc(100vh - 90vh))',
+    transform: 'translateY(calc(100vh - 85vh))',
+    minHeight: '425px',
   },
 });
 

@@ -53,7 +53,7 @@ const styles = theme => ({
   },
   avatar: {
     margin: theme.spacing(2),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.dark,
   },
   textField: {
     color: theme.palette.primary.dark,
@@ -258,7 +258,7 @@ function Contact(props) {
                 <div data-netlify-recaptcha="true" />
                 <Button
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   type="submit"
                   disabled={success || error}
                   className={classes.center}

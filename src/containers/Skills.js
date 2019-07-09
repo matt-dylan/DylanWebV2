@@ -28,19 +28,18 @@ import {
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.secondary.main,
-    overflowX: 'hidden',
-    paddingBottom: theme.spacing(3),
+    overflow: 'hidden',
+    backgroundColor: theme.palette.primary.main,
   },
   h3: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(2),
   },
   cardContent: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.main,
   },
   grid: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(3),
   },
   card: {
@@ -51,11 +50,11 @@ const styles = theme => ({
     backgroundSize: 'contain',
     backgroundOrigin: 'content-box',
     padding: theme.spacing(1),
-    '&:hover': {
-      msTransform: 'scale(1.1)' /* IE 9 */,
-      webkitTransform: 'scale(1.1)' /* Safari 3-8 */,
-      transform: 'scale(1.1)',
-    },
+    // '&:hover': {
+    //   msTransform: 'scale(1.1)' /* IE 9 */,
+    //   webkitTransform: 'scale(1.1)' /* Safari 3-8 */,
+    //   transform: 'scale(1.1)',
+    // },
   },
 });
 
@@ -145,7 +144,7 @@ function Skills(props) {
 
   return (
     <div id="Skills" className={classes.root}>
-      <Paper>
+      <Paper elevation={0}>
         <Typography
           variant="h3"
           color="textPrimary"
@@ -154,38 +153,39 @@ function Skills(props) {
         >
           Skills
         </Typography>
+
+        <Grid id="skillGrid" container className={classes.grid} spacing={3}>
+          {skillItems.map((skill, i) => {
+            return (
+              <Grid key={skill.title} item md={2} sm={3} xs={6}>
+                <Grow
+                  in={checked}
+                  style={{ transformOrigin: '0 0 0' }}
+                  {...(checked ? { timeout: i * 500 + 250 } : {})}
+                >
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.media}
+                      image={skill.image}
+                      title={skill.title}
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        align="center"
+                        color="textPrimary"
+                      >
+                        {skill.title}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grow>
+              </Grid>
+            );
+          })}
+        </Grid>
       </Paper>
-      <Grid id="skillGrid" container className={classes.grid} spacing={3}>
-        {skillItems.map((skill, i) => {
-          return (
-            <Grid key={skill.title} item md={2} sm={3} xs={6}>
-              <Grow
-                in={checked}
-                style={{ transformOrigin: '0 0 0' }}
-                {...(checked ? { timeout: i * 500 + 250 } : {})}
-              >
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.media}
-                    image={skill.image}
-                    title={skill.title}
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      align="center"
-                      color="textPrimary"
-                    >
-                      {skill.title}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grow>
-            </Grid>
-          );
-        })}
-      </Grid>
     </div>
   );
 }
