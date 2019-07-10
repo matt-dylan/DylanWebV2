@@ -94,7 +94,7 @@ const AboutContents = () => {
           color="secondary"
           href={DylanWhitlockResume}
           className={classes.button}
-          download
+          download="DylanWhitlockResume.pdf"
         >
           Resumé
         </Button>
@@ -103,7 +103,7 @@ const AboutContents = () => {
           color="secondary"
           href={DylanWhitlockDiploma}
           className={classes.button}
-          download
+          download="DylanWhitlockDiploma.pdf"
         >
           Diploma
         </Button>

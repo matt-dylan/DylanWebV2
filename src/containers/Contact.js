@@ -53,7 +53,7 @@ const styles = theme => ({
   },
   avatar: {
     margin: theme.spacing(2),
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: 'darkslategrey',
   },
   textField: {
     color: theme.palette.primary.dark,
