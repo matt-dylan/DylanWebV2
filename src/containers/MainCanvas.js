@@ -63,14 +63,16 @@ function MainCanvas(props) {
           <Avatar alt="Self Image" className={classes.avatar} src={SelfImage} />
         </Fade>
         <Fade in timeout={5000}>
-          <Typography
-            variant="h4"
-            color="textPrimary"
-            align="center"
-            className={classes.flexCenter}
-          >
-            "Putting people first"
-          </Typography>
+          <i>
+            <Typography
+              variant="h4"
+              color="textPrimary"
+              align="center"
+              className={classes.flexCenter}
+            >
+              "Putting people first"
+            </Typography>
+          </i>
         </Fade>
       </div>
     </main>

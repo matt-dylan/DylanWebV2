@@ -9,8 +9,8 @@ import Idaho from './idaho.jpg';
 import LaTech from './laTech.jpg';
 import Logo from './logo.png';
 import SelfImage from './selfImage.png';
-// import Switzerland from './switzerland.jpg';
 import UncleDylan from './uncle_dylan.jpg';
+import CowboyDylan from './cowboy_dylan.jpg';
 import Venice from './venice.jpg';
 import Water from './water.jpg';
 
@@ -29,5 +29,5 @@ export {
   Logo,
   SelfImage,
   LaTech,
-  // Switzerland,
+  CowboyDylan,
 };
