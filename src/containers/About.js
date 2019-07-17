@@ -1,41 +1,10 @@
-import {
-  Typography,
-  withStyles,
-  Grid,
-  Paper,
-  Container,
-} from '@material-ui/core';
-import PropTypes from 'prop-types';
+import { Typography, Grid, Paper, Container } from '@material-ui/core';
 import React from 'react';
 import { AboutContents, GridPhotos } from '../components';
+import { useStyles } from '../style/js/useStyles';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.primary.main,
-    overflow: 'hidden',
-  },
-  h3: {
-    backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(3),
-  },
-  grid: {
-    backgroundColor: theme.palette.primary.main,
-    paddingBottom: theme.spacing(3),
-  },
-  paper: {
-    padding: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-  button: {
-    margin: theme.spacing(1),
-  },
-});
-
-function About(props) {
-  const { classes } = props;
+function About() {
+  const classes = useStyles();
 
   return (
     <div id="About" className={classes.root}>
@@ -66,8 +35,4 @@ function About(props) {
   );
 }
 
-About.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(About);
+export default About;

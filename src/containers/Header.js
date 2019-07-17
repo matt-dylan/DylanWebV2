@@ -17,35 +17,10 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { AppDrawer } from '../components';
 import { Logo } from '../images';
+import { useStyles } from '../style/js/useStyles';
 
-const styles = theme => ({
-  appBar: {
-    padding: '0px',
-  },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: 200,
-      flexShrink: 0,
-    },
-  },
-  listIcon: {
-    color: theme.palette.secondary.main,
-    textDecoration: 'none',
-    [theme.breakpoints.down('sm')]: {
-      minWidth: '40px',
-    },
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-});
-
-function Header(props) {
-  const { classes } = props;
+function Header() {
+  const classes = useStyles();
   const [open, setOpen] = useState(false);
 
   function scrollIntoView() {
@@ -121,4 +96,4 @@ Header.propTypes = {
   sideList: PropTypes.func,
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(useStyles)(Header);

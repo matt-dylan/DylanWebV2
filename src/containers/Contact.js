@@ -1,7 +1,6 @@
 import {
   Paper,
   Typography,
-  withStyles,
   Container,
   Avatar,
   Grid,
@@ -9,80 +8,11 @@ import {
   Button,
 } from '@material-ui/core';
 import { PermContactCalendar } from '@material-ui/icons';
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import { LaTech } from '../images';
-// import CircularIntegration from '../components/CircularIntegration';
+import { useStyles } from '../style/js/useStyles';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.secondary.main,
-    overflowX: 'hidden',
-    paddingBottom: theme.spacing(3),
-  },
-  h4: {
-    padding: theme.spacing(1),
-  },
-  contactParallax: {
-    /* The image used */
-    backgroundImage: `url(${LaTech})`,
-    /* Create the parallax scrolling effect */
-    height: '100%',
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    backgroundBlendMode: 'color',
-    backgroundSize: 'cover',
-    padding: theme.spacing(7),
-    [theme.breakpoints.down('md')]: {
-      backgroundAttachment: 'scroll',
-      minHeight: '0',
-      padding: theme.spacing(1),
-    },
-  },
-  paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '300px',
-    margin: 'auto',
-    minWidth: '30%',
-    paddingBottom: theme.spacing(4),
-  },
-  avatar: {
-    margin: theme.spacing(2),
-    backgroundColor: 'darkslategrey',
-  },
-  textField: {
-    color: theme.palette.primary.dark,
-    '&:hover': {
-      outline: theme.palette.primary.dark,
-    },
-  },
-  btn: {
-    margin: theme.spacing(1),
-    color: theme.palette.primary.dark,
-  },
-  messageSuccess: {
-    color: '#4caf50',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  messageError: {
-    color: '#f44336',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  center: {
-    margin: 'auto',
-    display: 'flex',
-  },
-});
-
-function Contact(props) {
-  const { classes } = props;
+function Contact() {
+  const classes = useStyles();
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -134,8 +64,8 @@ function Contact(props) {
 
   return (
     <div id="Contact" className={`${classes.root} ${classes.contactParallax}`}>
-      <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
+      <Paper className={classes.contactForm}>
+        <Avatar className={classes.icon}>
           <PermContactCalendar />
         </Avatar>
         <Typography
@@ -274,8 +204,4 @@ function Contact(props) {
   );
 }
 
-Contact.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Contact);
+export default Contact;

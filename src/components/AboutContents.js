@@ -1,35 +1,8 @@
 import React from 'react';
 import DylanWhitlockResume from '../pdf/DylanWhitlockResume.pdf';
 import DylanWhitlockDiploma from '../pdf/DylanWhitlockDiploma.pdf';
-import {
-  Container,
-  Typography,
-  Paper,
-  Button,
-  makeStyles,
-  Grid,
-} from '@material-ui/core';
-
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.dark,
-    },
-  },
-  paper: {
-    boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-  },
-  input: {
-    display: 'none',
-  },
-  typo: {
-    padding: theme.spacing(2),
-  },
-  btnGrid: {
-    padding: theme.spacing(2),
-  },
-}));
+import { Container, Typography, Paper, Button, Grid } from '@material-ui/core';
+import { useStyles } from '../style/js/useStyles';
 
 const AboutContents = () => {
   const classes = useStyles();
@@ -39,12 +12,12 @@ const AboutContents = () => {
       <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
         Profile
       </Typography>
-      <Paper className={classes.paper}>
+      <Paper elevation={8}>
         <Typography
           variant="h6"
           color="textSecondary"
           align="left"
-          className={classes.typo}
+          className={classes.smallPadding}
           gutterBottom
         >
           Specializes in Web development, with a working background in the
@@ -55,12 +28,12 @@ const AboutContents = () => {
       <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
         Employment
       </Typography>
-      <Paper className={classes.paper}>
+      <Paper elevation={8}>
         <Typography
           variant="h6"
           color="textSecondary"
           align="left"
-          className={classes.typo}
+          className={classes.smallPadding}
           gutterBottom
         >
           Developing technical solutions as a Consultant at Fenway Group.
@@ -70,12 +43,12 @@ const AboutContents = () => {
       <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
         Education
       </Typography>
-      <Paper className={classes.paper}>
+      <Paper elevation={8}>
         <Typography
           variant="h6"
           color="textSecondary"
           align="left"
-          className={classes.typo}
+          className={classes.smallPadding}
           gutterBottom
         >
           B.S in Computer Science from Louisiana Tech University
@@ -86,7 +59,7 @@ const AboutContents = () => {
         direction="row"
         justify="center"
         alignItems="center"
-        className={classes.btnGrid}
+        className={classes.smallPadding}
         spacing={2}
       >
         <Button

@@ -1,49 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Germany } from '../images';
 import { SelfImage } from '../images';
-import { Typography, withStyles, Fade, Avatar } from '@material-ui/core';
+import { Typography, Fade, Avatar } from '@material-ui/core';
+import { useStyles } from '../style/js/useStyles';
 
-const styles = theme => ({
-  flexCenter: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: '0 auto 0.35em',
-    width: '225px',
-    height: '225px',
-    [theme.breakpoints.down('xs')]: {
-      width: '190px',
-      height: '190px',
-    },
-  },
-  canvasParallax: {
-    /* The image used */
-    backgroundImage: `url(${Germany})`,
-    /* Set a specific height */
-    minHeight: 'calc(100vh - 64px)',
-    height: '100%',
-    /* Create the parallax scrolling effect */
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    backgroundBlendMode: 'color',
-    backgroundSize: 'cover',
-    [theme.breakpoints.down('md')]: {
-      backgroundAttachment: 'scroll',
-    },
-  },
-  wrapper: {
-    transform: 'translateY(calc(100vh - 85vh))',
-    minHeight: '425px',
-  },
-});
-
-function MainCanvas(props) {
-  const { classes } = props;
+function MainCanvas() {
+  const classes = useStyles();
 
   return (
     <main id="Home" className={classes.canvasParallax}>
@@ -79,8 +40,4 @@ function MainCanvas(props) {
   );
 }
 
-MainCanvas.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(MainCanvas);
+export default MainCanvas;

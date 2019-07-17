@@ -1,19 +1,14 @@
-import { Drawer, withStyles } from '@material-ui/core';
-import React from 'react';
+import { Drawer } from '@material-ui/core';
 import PropTypes from 'prop-types';
-
-const styles = theme => ({
-  sidebarStyle: {
-    backgroundColor: theme.palette.primary.main,
-  },
-});
+import React from 'react';
+import { useStyles } from '../style/js/useStyles';
 
 function AppDrawer(props) {
-  const { classes } = props;
+  const classes = useStyles();
   return (
     <Drawer
       anchor="left"
-      classes={{ paperAnchorLeft: classes.sidebarStyle }}
+      classes={{ paperAnchorLeft: classes.primaryBackground }}
       open={props.open}
       onClose={props.toggleDrawer(false)}
     >
@@ -24,9 +19,8 @@ function AppDrawer(props) {
 
 AppDrawer.propTypes = {
   open: PropTypes.bool,
-  classes: PropTypes.object.isRequired,
   toggleDrawer: PropTypes.func,
   sideList: PropTypes.func,
 };
 
-export default withStyles(styles)(AppDrawer);
+export default AppDrawer;
