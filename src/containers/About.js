@@ -8,16 +8,15 @@ function About() {
 
   return (
     <div id="About" className={classes.root}>
+      <Typography
+        variant="h3"
+        color="textPrimary"
+        align="center"
+        className={classes.h3}
+      >
+        About
+      </Typography>
       <Paper elevation={0}>
-        <Typography
-          variant="h3"
-          color="textPrimary"
-          align="center"
-          className={classes.h3}
-        >
-          About
-        </Typography>
-
         <Grid container className={classes.grid} spacing={2}>
           <Grid item sm={6} xs={12}>
             <Container>

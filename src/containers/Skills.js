@@ -4,7 +4,6 @@ import {
   CardMedia,
   Grid,
   Grow,
-  Paper,
   Typography,
 } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
@@ -110,48 +109,45 @@ function Skills() {
 
   return (
     <div id="Skills" className={classes.root}>
-      <Paper elevation={0}>
-        <Typography
-          variant="h3"
-          color="textPrimary"
-          align="center"
-          className={classes.h3}
-        >
-          Skills
-        </Typography>
-
-        <Grid id="skillGrid" container className={classes.grid} spacing={3}>
-          {skillItems.map((skill, i) => {
-            return (
-              <Grid key={skill.title} item md={2} sm={3} xs={6}>
-                <Grow
-                  in={checked}
-                  style={{ transformOrigin: '0 0 0' }}
-                  {...(checked ? { timeout: i * 500 + 250 } : {})}
-                >
-                  <Card elevation={7}>
-                    <CardMedia
-                      className={classes.media}
-                      image={skill.image}
-                      title={skill.title}
-                    />
-                    <CardContent className={classes.secondaryBackground}>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        align="center"
-                        color="textPrimary"
-                      >
-                        {skill.title}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grow>
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Paper>
+      <Typography
+        variant="h3"
+        color="textPrimary"
+        align="center"
+        className={classes.h3}
+      >
+        Skills
+      </Typography>
+      <Grid id="skillGrid" container className={classes.grid} spacing={3}>
+        {skillItems.map((skill, i) => {
+          return (
+            <Grid key={skill.title} item md={2} sm={3} xs={6}>
+              <Grow
+                in={checked}
+                style={{ transformOrigin: '0 0 0' }}
+                {...(checked ? { timeout: i * 500 + 250 } : {})}
+              >
+                <Card elevation={8}>
+                  <CardMedia
+                    className={classes.media}
+                    image={skill.image}
+                    title={skill.title}
+                  />
+                  <CardContent className={classes.secondaryBackground}>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      align="center"
+                      color="textPrimary"
+                    >
+                      {skill.title}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grow>
+            </Grid>
+          );
+        })}
+      </Grid>
     </div>
   );
 }

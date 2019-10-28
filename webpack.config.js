@@ -28,6 +28,20 @@ module.exports = {
         test: /\.(png|svg|jpg|gif|pdf)$/,
         use: ['file-loader'],
       },
+      {
+        test: /\.mp4/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            mimtetype: 'video/mp4',
+          },
+        },
+      },
+      {
+        test: /\.html$/,
+        use: 'html-loader?attrs[]=video:src',
+      },
     ],
   },
   plugins: [

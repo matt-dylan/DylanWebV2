@@ -6,17 +6,19 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-  withStyles,
+  Typography,
 } from '@material-ui/core';
-import ComputerIcon from '@material-ui/icons/Computer';
-import EmailIcon from '@material-ui/icons/Email';
-import HomeIcon from '@material-ui/icons/Home';
-import MenuIcon from '@material-ui/icons/Menu';
-import PersonIcon from '@material-ui/icons/Person';
+import {
+  Person,
+  Menu,
+  Home,
+  Computer,
+  // PermContactCalendar,
+  Email,
+} from '@material-ui/icons';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { AppDrawer } from '../components';
-import { Logo } from '../images';
 import { useStyles } from '../style/js/useStyles';
 
 function Header() {
@@ -46,10 +48,10 @@ function Header() {
     >
       <List root={classes.sidebar} disablePadding>
         {[
-          { text: 'Home', icon: <HomeIcon /> },
-          { text: 'About', icon: <PersonIcon /> },
-          { text: 'Skills', icon: <ComputerIcon /> },
-          { text: 'Contact', icon: <EmailIcon /> },
+          { text: 'Home', icon: <Home /> },
+          { text: 'About', icon: <Person /> },
+          { text: 'Skills', icon: <Computer /> },
+          { text: 'Contact', icon: <Email /> },
         ].map(item => (
           <a
             key={item.text}
@@ -70,30 +72,46 @@ function Header() {
   );
 
   return (
-    <AppBar position="static" className={classes.appBar}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="Menu"
-          onClick={toggleDrawer(true)}
-        >
-          <MenuIcon />
-        </IconButton>
-        <AppDrawer
-          open={open}
-          sideList={sideList}
-          toggleDrawer={toggleDrawer}
-        />
-        <img src={Logo} alt="Logo" />
-      </Toolbar>
-    </AppBar>
+    <Fragment>
+      <AppBar position="sticky" className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="Menu"
+            onClick={toggleDrawer(true)}
+          >
+            <Menu />
+          </IconButton>
+          <AppDrawer
+            open={open}
+            sideList={sideList}
+            toggleDrawer={toggleDrawer}
+          />
+          {/* <img src={Logo} alt="Logo" /> */}
+          <Typography variant="h6" className={classes.title}>
+            Dylan Whitlock
+          </Typography>
+          <a
+            href="mailto:matthew.whitlock8@gmail.com"
+            style={{ color: 'inherit' }}
+          >
+            <IconButton color="inherit" aria-label="email">
+              <Email />
+            </IconButton>
+          </a>
+          {/* <IconButton color="inherit" aria-label="email">
+            <PermContactCalendar />
+          </IconButton> */}
+        </Toolbar>
+      </AppBar>
+    </Fragment>
   );
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
+  balance: PropTypes.number,
   toggleDrawer: PropTypes.func,
   sideList: PropTypes.func,
 };
 
-export default withStyles(useStyles)(Header);
+export default Header;

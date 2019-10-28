@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/styles';
-import { Germany, LaTech } from '../../images';
+import { LaTech } from '../../images';
 
 export const useStyles = makeStyles(theme => ({
   appBar: {
@@ -20,23 +20,6 @@ export const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.secondary.dark,
     },
   },
-  canvasParallax: {
-    /* The image used */
-    backgroundImage: `url(${Germany})`,
-    /* Set a specific height */
-    minHeight: 'calc(100vh - 64px)',
-    height: '100%',
-    /* Create the parallax scrolling effect */
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    backgroundBlendMode: 'color',
-    backgroundSize: 'cover',
-    [theme.breakpoints.down('md')]: {
-      backgroundAttachment: 'scroll',
-    },
-  },
   center: {
     margin: 'auto',
     display: 'flex',
@@ -45,10 +28,10 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '300px',
+    width: '325px',
     margin: 'auto',
     minWidth: '30%',
-    paddingBottom: theme.spacing(4),
+    padding: theme.spacing(2),
   },
   contactParallax: {
     /* The image used */
@@ -74,6 +57,12 @@ export const useStyles = makeStyles(theme => ({
       flexShrink: 0,
     },
   },
+  factPaper: {
+    padding: theme.spacing(1),
+    maxWidth: '100%',
+    height: 'auto',
+    maxHeight: '400px',
+  },
   flexCenter: {
     display: 'flex',
     justifyContent: 'center',
@@ -90,25 +79,23 @@ export const useStyles = makeStyles(theme => ({
   },
   grid: {
     backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
   },
   gridList: {
     width: 700,
     height: 'auto',
   },
   h3: {
-    backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(3),
+    marginTop: theme.spacing(2),
   },
   h4: {
     padding: theme.spacing(1),
   },
   icon: {
-    margin: theme.spacing(2),
-    backgroundColor: 'darkslategrey',
+    backgroundColor: theme.palette.primary.main,
   },
   listIcon: {
-    color: theme.palette.secondary.main,
+    color: '#fff',
     textDecoration: 'none',
     [theme.breakpoints.down('sm')]: {
       minWidth: '40px',
@@ -153,6 +140,7 @@ export const useStyles = makeStyles(theme => ({
   },
   root: {
     flexGrow: 1,
+    padding: theme.spacing(2),
     backgroundColor: theme.palette.primary.main,
     overflow: 'hidden',
   },
@@ -161,6 +149,9 @@ export const useStyles = makeStyles(theme => ({
   },
   smallPadding: {
     padding: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
   },
   textField: {
     color: theme.palette.primary.dark,

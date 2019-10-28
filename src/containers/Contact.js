@@ -7,9 +7,9 @@ import {
   TextField,
   Button,
 } from '@material-ui/core';
-import { PermContactCalendar } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
 import { useStyles } from '../style/js/useStyles';
+import { SelfImage } from '../images';
 
 function Contact() {
   const classes = useStyles();
@@ -64,18 +64,28 @@ function Contact() {
 
   return (
     <div id="Contact" className={`${classes.root} ${classes.contactParallax}`}>
-      <Paper className={classes.contactForm}>
-        <Avatar className={classes.icon}>
-          <PermContactCalendar />
-        </Avatar>
+      <Paper elevation={3} className={classes.contactForm}>
+        <div className={classes.flexCenter}>
+          <Typography
+            variant="h3"
+            color="textSecondary"
+            align="center"
+            className={classes.h4}
+          >
+            Contact
+          </Typography>
+        </div>
+
         <Typography
-          variant="h4"
+          variant="body1"
           color="textSecondary"
           align="center"
-          className={classes.h4}
+          className={classes.h6}
+          gutterBottom
         >
-          Contact
+          I would love to share my personal and professional experiences!
         </Typography>
+        <Avatar alt="Self Image" className={classes.avatar} src={SelfImage} />
         <form
           className={classes.form}
           onSubmit={e => handleSubmit(e)}
