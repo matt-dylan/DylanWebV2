@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography, Zoom } from '@material-ui/core';
+import { Grid, Paper, Typography, Zoom, Button } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useStyles } from '../style/js/useStyles';
@@ -77,7 +77,7 @@ function Home() {
             align="center"
             gutterBottom
           >
-            Random Dogs
+            This is your dog
           </Typography>
           <Paper elevation={8}>
             <span className="img-container">
@@ -88,6 +88,15 @@ function Home() {
               />
             </span>
           </Paper>
+          <br />
+          <Button
+            variant="contained"
+            color="secondary"
+            fullWidth
+            onClick={() => getDog()}
+          >
+            Get a new dog
+          </Button>
         </Grid>
         <Grid item md={6} xs={12}>
           <Typography

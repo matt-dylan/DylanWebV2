@@ -155,7 +155,7 @@ export const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   textColor: {
-    color: theme.palette.primary.dark,
+    color: theme.palette.primary.main,
     '&:hover': {
       borderColor: theme.palette.secondary.dark,
     },
