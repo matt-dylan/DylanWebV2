@@ -8,7 +8,7 @@ function Home() {
 
   const [advice, setAdvice] = useState('');
   const [dog, setDog] = useState('');
-  const [fortyTwoQuote, setFortyTwoQuote] = useState('');
+  const [RonQuote, setRonQuote] = useState('');
 
   const options = {
     method: 'GET',
@@ -20,15 +20,9 @@ function Home() {
 
   useEffect(() => {
     getDog();
-  }, []);
-
-  useEffect(() => {
     getAdvice();
-  }, [dog]);
-
-  useEffect(() => {
-    getFortyTwoQuote();
-  }, [advice]);
+    getRonQuote();
+  }, []);
 
   function getDog() {
     // https://api.chucknorris.io/
@@ -48,10 +42,12 @@ function Home() {
     });
   }
 
-  function getFortyTwoQuote() {
-    axios.get('http://numbersapi.com/42', options).then(res => {
-      setFortyTwoQuote(res.data);
-    });
+  function getRonQuote() {
+    axios
+      .get('https://ron-swanson-quotes.herokuapp.com/v2/quotes', options)
+      .then(res => {
+        setRonQuote(res.data);
+      });
   }
 
   let zoom = true;
@@ -63,13 +59,17 @@ function Home() {
           variant="h3"
           color="textPrimary"
           align="center"
-          // className={classes.flexCenter}
           gutterBottom
         >
           Welcome to dylanwhitlock.com
         </Typography>
       </Zoom>
-      <Grid container className={classes.grid} spacing={3}>
+      <Grid
+        container
+        className={classes.grid}
+        spacing={3}
+        justify="space-evenly"
+      >
         <Grid item md={6} xs={12}>
           <Typography
             variant="h5"
@@ -77,7 +77,7 @@ function Home() {
             align="center"
             gutterBottom
           >
-            This is your dog
+            This is a dog
           </Typography>
           <Paper elevation={8}>
             <span className="img-container">
@@ -117,6 +117,15 @@ function Home() {
               {advice || 'Loading...'}
             </Typography>
           </Paper>
+          <Button
+            variant="contained"
+            color="secondary"
+            fullWidth
+            onClick={() => getAdvice()}
+          >
+            I need more advice
+          </Button>
+          <br />
           <br />
           <Typography
             variant="h5"
@@ -124,18 +133,27 @@ function Home() {
             align="center"
             gutterBottom
           >
-            Facts of 42
+            Ron Swanson
           </Typography>
           <Paper elevation={8}>
             <Typography
               variant="h6"
               color="textSecondary"
+              align="left"
               className={classes.smallPadding}
               gutterBottom
             >
-              {fortyTwoQuote || 'Loading...'}
+              {RonQuote || 'Loading...'}
             </Typography>
           </Paper>
+          <Button
+            variant="contained"
+            color="secondary"
+            fullWidth
+            onClick={() => getRonQuote()}
+          >
+            I need more Ron wisdom
+          </Button>
         </Grid>
       </Grid>
     </div>
