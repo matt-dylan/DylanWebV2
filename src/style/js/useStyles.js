@@ -28,10 +28,10 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '325px',
+    maxWidth: '325px',
     margin: 'auto',
     minWidth: '30%',
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
   },
   contactParallax: {
     /* The image used */
@@ -109,10 +109,11 @@ export const useStyles = makeStyles(theme => ({
     },
   },
   media: {
-    height: 200,
-    backgroundSize: 'contain',
-    backgroundOrigin: 'content-box',
+    height: '125px',
     padding: theme.spacing(1),
+    maxWidth: '100%',
+    display: 'block',
+    margin: 'auto',
     // '&:hover': {
     //   msTransform: 'scale(1.1)' /* IE 9 */,
     //   webkitTransform: 'scale(1.1)' /* Safari 3-8 */,
@@ -153,10 +154,10 @@ export const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
-  textField: {
+  textColor: {
     color: theme.palette.primary.dark,
     '&:hover': {
-      outline: theme.palette.primary.dark,
+      borderColor: theme.palette.secondary.dark,
     },
   },
   wrapper: {

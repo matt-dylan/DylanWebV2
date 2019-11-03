@@ -7,7 +7,7 @@ import Groovy from './groovy.png';
 import HTML5 from './HTML5.png';
 import Java from './java.png';
 import Javascript from './javascript.png';
-import Python from './python.svg';
+import Python from './pythonlang.png';
 import ReactIcon from './react.png';
 import Scrum from './scrum.png';
 import SQL from './SQL.png';

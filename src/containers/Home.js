@@ -69,8 +69,27 @@ function Home() {
           Welcome to dylanwhitlock.com
         </Typography>
       </Zoom>
-      <Grid container className={classes.grid} spacing={6}>
-        <Grid item md={4} xs={12}>
+      <Grid container className={classes.grid} spacing={3}>
+        <Grid item md={6} xs={12}>
+          <Typography
+            variant="h5"
+            color="textPrimary"
+            align="center"
+            gutterBottom
+          >
+            Random Dogs
+          </Typography>
+          <Paper elevation={8}>
+            <span className="img-container">
+              <img
+                src={dog}
+                alt="Dog"
+                className={`${classes.center} ${classes.factPaper}`}
+              />
+            </span>
+          </Paper>
+        </Grid>
+        <Grid item md={6} xs={12}>
           <Typography
             variant="h5"
             color="textPrimary"
@@ -89,25 +108,7 @@ function Home() {
               {advice || 'Loading...'}
             </Typography>
           </Paper>
-        </Grid>
-        <Grid item md={4} xs={12}>
-          <Typography
-            variant="h5"
-            color="textPrimary"
-            align="center"
-            gutterBottom
-          >
-            Random Dogs
-          </Typography>
-          <Paper elevation={8}>
-            <img
-              src={dog}
-              alt="Dog"
-              className={`${classes.center} ${classes.factPaper}`}
-            />
-          </Paper>
-        </Grid>
-        <Grid item md={4} xs={12}>
+          <br />
           <Typography
             variant="h5"
             color="textPrimary"

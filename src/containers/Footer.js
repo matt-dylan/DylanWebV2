@@ -19,9 +19,14 @@ function Footer(props) {
   const { classes } = props;
   return (
     <footer className={classes.footer}>
-      <Typography color="textPrimary" align="center" gutterBottom>
-        Copyright <Copyright className={classes.icon} /> 2019 Dylan Whitlock.
-        All rights reserved
+      <Typography
+        variant="subtitle2"
+        color="textPrimary"
+        align="center"
+        gutterBottom
+      >
+        <Copyright className={classes.icon} /> 2019 Dylan Whitlock. All rights
+        reserved
       </Typography>
     </footer>
   );

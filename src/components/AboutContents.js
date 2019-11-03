@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import DylanWhitlockResume from '../pdf/DylanWhitlockResume.pdf';
 import DylanWhitlockDiploma from '../pdf/DylanWhitlockDiploma.pdf';
-import { Container, Typography, Paper, Button, Grid } from '@material-ui/core';
+import { Typography, Paper, Button, Grid } from '@material-ui/core';
 import { useStyles } from '../style/js/useStyles';
 
 const AboutContents = () => {
   const classes = useStyles();
 
   return (
-    <Container>
+    <Fragment>
       <Typography variant="h5" color="textPrimary" align="left" gutterBottom>
         Profile
       </Typography>
@@ -89,7 +89,7 @@ const AboutContents = () => {
           Github
         </Button>
       </Grid>
-    </Container>
+    </Fragment>
   );
 };
 

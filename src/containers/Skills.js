@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Grow,
-  Typography,
-} from '@material-ui/core';
+import { Paper, Grid, Grow, Typography, Container } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import {
   AWS,
@@ -109,14 +102,17 @@ function Skills() {
 
   return (
     <div id="Skills" className={classes.root}>
-      <Typography
-        variant="h3"
-        color="textPrimary"
-        align="center"
-        className={classes.h3}
-      >
-        Skills
-      </Typography>
+      <Container>
+        <Typography
+          variant="h3"
+          color="textPrimary"
+          align="center"
+          className={classes.h3}
+        >
+          Skills
+        </Typography>
+        <hr />
+      </Container>
       <Grid id="skillGrid" container className={classes.grid} spacing={3}>
         {skillItems.map((skill, i) => {
           return (
@@ -126,23 +122,25 @@ function Skills() {
                 style={{ transformOrigin: '0 0 0' }}
                 {...(checked ? { timeout: i * 500 + 250 } : {})}
               >
-                <Card elevation={8}>
-                  <CardMedia
-                    className={classes.media}
-                    image={skill.image}
-                    title={skill.title}
-                  />
-                  <CardContent className={classes.secondaryBackground}>
+                <Paper elevation={8}>
+                  <span className="img-container">
+                    <img className={classes.media} src={skill.image} />
+                  </span>
+                  <div
+                    className={`${classes.secondaryBackground} ${
+                      classes.smallPadding
+                    }`}
+                  >
                     <Typography
                       gutterBottom
                       variant="h5"
                       align="center"
-                      color="textPrimary"
+                      color="inherit"
                     >
                       {skill.title}
                     </Typography>
-                  </CardContent>
-                </Card>
+                  </div>
+                </Paper>
               </Grow>
             </Grid>
           );
