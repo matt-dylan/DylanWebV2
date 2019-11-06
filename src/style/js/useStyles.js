@@ -78,9 +78,7 @@ export const useStyles = makeStyles(theme => ({
   },
   grid: {
     backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(2),
     maxWidth: '1280px',
-    margin: 'auto',
   },
   gridList: {
     width: 700,

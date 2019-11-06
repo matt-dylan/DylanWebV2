@@ -112,40 +112,40 @@ function Skills() {
           Skills
         </Typography>
         <hr />
-      </Container>
-      <Grid id="skillGrid" container className={classes.grid} spacing={3}>
-        {skillItems.map((skill, i) => {
-          return (
-            <Grid key={skill.title} item md={2} sm={3} xs={6}>
-              <Grow
-                in={checked}
-                style={{ transformOrigin: '0 0 0' }}
-                {...(checked ? { timeout: i * 500 + 250 } : {})}
-              >
-                <Paper elevation={8} square>
-                  <span className="img-container">
-                    <img className={classes.media} src={skill.image} />
-                  </span>
-                  <div
-                    className={`${classes.secondaryBackground} ${
-                      classes.smallPadding
-                    }`}
-                  >
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      align="center"
-                      color="inherit"
+        <Grid id="skillGrid" container className={classes.grid} spacing={2}>
+          {skillItems.map((skill, i) => {
+            return (
+              <Grid key={skill.title} item md={2} sm={3} xs={6}>
+                <Grow
+                  in={checked}
+                  style={{ transformOrigin: '0 0 0' }}
+                  {...(checked ? { timeout: i * 500 + 250 } : {})}
+                >
+                  <Paper elevation={8} square>
+                    <span className="img-container">
+                      <img className={classes.media} src={skill.image} />
+                    </span>
+                    <div
+                      className={`${classes.secondaryBackground} ${
+                        classes.smallPadding
+                      }`}
                     >
-                      {skill.title}
-                    </Typography>
-                  </div>
-                </Paper>
-              </Grow>
-            </Grid>
-          );
-        })}
-      </Grid>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        align="center"
+                        color="inherit"
+                      >
+                        {skill.title}
+                      </Typography>
+                    </div>
+                  </Paper>
+                </Grow>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
     </div>
   );
 }

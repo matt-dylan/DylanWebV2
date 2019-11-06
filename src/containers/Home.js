@@ -74,103 +74,105 @@ function Home() {
           <hr />
         </Container>
       </Zoom>
-      <Grid
-        container
-        className={classes.grid}
-        spacing={3}
-        justify="space-evenly"
-      >
-        <Grid item md={6} xs={12}>
-          <Typography
-            variant="h5"
-            color="textPrimary"
-            align="center"
-            gutterBottom
-          >
-            This is a dog
-          </Typography>
-          <Paper elevation={8} className={classes.primaryDark}>
-            <span className="img-container">
-              <img
-                src={dog}
-                alt="Dog"
-                className={`${classes.center} ${classes.factPaper}`}
-              />
-            </span>
+      <Container>
+        <Grid
+          container
+          className={classes.grid}
+          spacing={2}
+          justify="space-evenly"
+        >
+          <Grid item md={6} xs={12}>
+            <Typography
+              variant="h5"
+              color="textPrimary"
+              align="center"
+              gutterBottom
+            >
+              This is a dog
+            </Typography>
+            <Paper elevation={8} className={classes.primaryDark}>
+              <span className="img-container">
+                <img
+                  src={dog}
+                  alt="Dog"
+                  className={`${classes.center} ${classes.factPaper}`}
+                />
+              </span>
+              {/* For the gutterbottom space */}
+              <Typography variant="h5" gutterBottom>
+                {''}
+              </Typography>
+            </Paper>
+            <Button
+              variant="contained"
+              color="secondary"
+              fullWidth
+              onClick={() => getDog()}
+            >
+              Get a new dog
+            </Button>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <Typography
+              variant="h5"
+              color="textPrimary"
+              align="center"
+              gutterBottom
+            >
+              Free Advice
+            </Typography>
+            <Paper elevation={8}>
+              <Typography
+                variant="h6"
+                color="textSecondary"
+                className={classes.smallPadding}
+                gutterBottom
+              >
+                {advice || 'Loading...'}
+              </Typography>
+            </Paper>
+            <Button
+              variant="contained"
+              color="secondary"
+              fullWidth
+              onClick={() => getAdvice()}
+            >
+              I need more advice
+            </Button>
             {/* For the gutterbottom space */}
             <Typography variant="h5" gutterBottom>
               {''}
             </Typography>
-          </Paper>
-          <Button
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={() => getDog()}
-          >
-            Get a new dog
-          </Button>
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <Typography
-            variant="h5"
-            color="textPrimary"
-            align="center"
-            gutterBottom
-          >
-            Free Advice
-          </Typography>
-          <Paper elevation={8}>
             <Typography
-              variant="h6"
-              color="textSecondary"
-              className={classes.smallPadding}
+              variant="h5"
+              color="textPrimary"
+              align="center"
               gutterBottom
             >
-              {advice || 'Loading...'}
+              Ron Swanson
             </Typography>
-          </Paper>
-          <Button
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={() => getAdvice()}
-          >
-            I need more advice
-          </Button>
-          {/* For the gutterbottom space */}
-          <Typography variant="h5" gutterBottom>
-            {''}
-          </Typography>
-          <Typography
-            variant="h5"
-            color="textPrimary"
-            align="center"
-            gutterBottom
-          >
-            Ron Swanson
-          </Typography>
-          <Paper elevation={8}>
-            <Typography
-              variant="h6"
-              color="textSecondary"
-              align="left"
-              className={classes.smallPadding}
-              gutterBottom
+            <Paper elevation={8}>
+              <Typography
+                variant="h6"
+                color="textSecondary"
+                align="left"
+                className={classes.smallPadding}
+                gutterBottom
+              >
+                {RonQuote || 'Loading...'}
+              </Typography>
+            </Paper>
+            <Button
+              variant="contained"
+              color="secondary"
+              fullWidth
+              onClick={() => getRonQuote()}
             >
-              {RonQuote || 'Loading...'}
-            </Typography>
-          </Paper>
-          <Button
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={() => getRonQuote()}
-          >
-            I need more Ron wisdom
-          </Button>
+              I need more Ron wisdom
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </div>
   );
 }
