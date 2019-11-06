@@ -1,6 +1,6 @@
 import React from 'react';
 import { UncleDylan, DenverDylan, Graduation, CowboyDylan } from '../images';
-import { GridList, GridListTile } from '@material-ui/core';
+import { GridList, GridListTile, Paper } from '@material-ui/core';
 import { useStyles } from '../style/js/useStyles';
 
 const tileData = [
@@ -34,7 +34,7 @@ function GridPhotos() {
   const classes = useStyles();
 
   return (
-    <div className={classes.frame}>
+    <Paper className={classes.frame} elevation={8}>
       <GridList cellHeight={275} className={classes.gridList} cols={6}>
         {tileData.map(tile => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
@@ -42,7 +42,7 @@ function GridPhotos() {
           </GridListTile>
         ))}
       </GridList>
-    </div>
+    </Paper>
   );
 }
 

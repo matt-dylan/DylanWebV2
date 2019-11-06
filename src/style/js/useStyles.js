@@ -73,13 +73,14 @@ export const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    marginTop: '35px',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.primary.dark,
     borderRadius: theme.spacing(1),
   },
   grid: {
     backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(2),
+    maxWidth: '1280px',
+    margin: 'auto',
   },
   gridList: {
     width: 700,
@@ -90,9 +91,6 @@ export const useStyles = makeStyles(theme => ({
   },
   h4: {
     padding: theme.spacing(1),
-  },
-  icon: {
-    backgroundColor: theme.palette.primary.main,
   },
   listIcon: {
     color: '#fff',
@@ -109,7 +107,7 @@ export const useStyles = makeStyles(theme => ({
     },
   },
   media: {
-    height: '125px',
+    height: '150px',
     padding: theme.spacing(1),
     maxWidth: '100%',
     display: 'block',
@@ -136,8 +134,11 @@ export const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  primaryBackground: {
+  primary: {
     backgroundColor: theme.palette.primary.main,
+  },
+  primaryDark: {
+    backgroundColor: theme.palette.primary.dark,
   },
   root: {
     flexGrow: 1,

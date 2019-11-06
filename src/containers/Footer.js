@@ -25,8 +25,8 @@ function Footer(props) {
         align="center"
         gutterBottom
       >
-        <Copyright className={classes.icon} /> 2019 Dylan Whitlock. All rights
-        reserved
+        <Copyright fontSize="inherit" style={{ verticalAlign: 'text-top' }} />{' '}
+        2019 Dylan Whitlock. All rights reserved
       </Typography>
     </footer>
   );

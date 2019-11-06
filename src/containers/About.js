@@ -19,16 +19,18 @@ function About() {
         </Typography>
         <hr />
       </Container>
-      {/* <Paper elevation={0}> */}
       <Grid container className={classes.grid} spacing={3}>
         <Grid item sm={6} xs={12}>
           <AboutContents />
         </Grid>
         <Grid item sm={6} xs={12}>
+          {/* For the gutterbottom space */}
+          <Typography variant="h5" className="hidden" gutterBottom>
+            dylanwhitlock.com
+          </Typography>
           <GridPhotos />
         </Grid>
       </Grid>
-      {/* </Paper> */}
     </div>
   );
 }

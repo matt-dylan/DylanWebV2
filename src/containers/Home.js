@@ -1,4 +1,11 @@
-import { Grid, Paper, Typography, Zoom, Button } from '@material-ui/core';
+import {
+  Grid,
+  Paper,
+  Typography,
+  Zoom,
+  Button,
+  Container,
+} from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useStyles } from '../style/js/useStyles';
@@ -50,19 +57,22 @@ function Home() {
       });
   }
 
-  let zoom = true;
+  const zoom = true;
   return (
     <div id="Home" className={classes.root}>
       <br />
       <Zoom in={zoom}>
-        <Typography
-          variant="h3"
-          color="textPrimary"
-          align="center"
-          gutterBottom
-        >
-          Welcome to dylanwhitlock.com
-        </Typography>
+        <Container>
+          <Typography
+            variant="h3"
+            color="textPrimary"
+            align="center"
+            gutterBottom
+          >
+            Welcome
+          </Typography>
+          <hr />
+        </Container>
       </Zoom>
       <Grid
         container
@@ -79,7 +89,7 @@ function Home() {
           >
             This is a dog
           </Typography>
-          <Paper elevation={8}>
+          <Paper elevation={8} className={classes.primaryDark}>
             <span className="img-container">
               <img
                 src={dog}
@@ -87,8 +97,11 @@ function Home() {
                 className={`${classes.center} ${classes.factPaper}`}
               />
             </span>
+            {/* For the gutterbottom space */}
+            <Typography variant="h5" gutterBottom>
+              {''}
+            </Typography>
           </Paper>
-          <br />
           <Button
             variant="contained"
             color="secondary"
@@ -125,8 +138,10 @@ function Home() {
           >
             I need more advice
           </Button>
-          <br />
-          <br />
+          {/* For the gutterbottom space */}
+          <Typography variant="h5" gutterBottom>
+            {''}
+          </Typography>
           <Typography
             variant="h5"
             color="textPrimary"

@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
-import './style/main.less';
+// Loads in global less stylesheet
+import './style/global.less';
 
 ReactDOM.render(<App />, document.getElementById('root'));

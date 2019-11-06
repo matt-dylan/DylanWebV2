@@ -8,7 +8,7 @@ function AppDrawer(props) {
   return (
     <Drawer
       anchor="left"
-      classes={{ paperAnchorLeft: classes.primaryBackground }}
+      classes={{ paperAnchorLeft: classes.primary }}
       open={props.open}
       onClose={props.toggleDrawer(false)}
     >

@@ -122,7 +122,7 @@ function Skills() {
                 style={{ transformOrigin: '0 0 0' }}
                 {...(checked ? { timeout: i * 500 + 250 } : {})}
               >
-                <Paper elevation={8}>
+                <Paper elevation={8} square>
                   <span className="img-container">
                     <img className={classes.media} src={skill.image} />
                   </span>
