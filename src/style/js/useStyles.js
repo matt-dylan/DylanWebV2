@@ -60,7 +60,7 @@ export const useStyles = makeStyles(theme => ({
   factPaper: {
     padding: theme.spacing(1),
     maxWidth: '100%',
-    height: 'auto',
+    height: '400px',
     maxHeight: '400px',
   },
   flexCenter: {
