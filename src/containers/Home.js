@@ -7,6 +7,7 @@ import {
   Container,
 } from '@material-ui/core';
 import axios from 'axios';
+import { Bitcoin } from '../images';
 import React, { useEffect, useState } from 'react';
 import { useStyles } from '../style/js/useStyles';
 
@@ -15,11 +16,11 @@ function Home() {
 
   const [advice, setAdvice] = useState('');
   const [dog, setDog] = useState('');
-  const [RonQuote, setRonQuote] = useState('');
+  const [catFact, setCatFact] = useState('');
+  const [btc, setBtc] = useState({ USD: '', GBP: '', EUR: '' });
 
   const options = {
     method: 'GET',
-    // mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -28,11 +29,17 @@ function Home() {
   useEffect(() => {
     getDog();
     getAdvice();
-    getRonQuote();
+    getCatFact();
+    getBtc();
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      getBtc();
+    }, 5000);
+  }, [btc]);
+
   function getDog() {
-    // https://api.chucknorris.io/
     axios.get('https://random.dog/woof.json', options).then(res => {
       if (!res.data.url.endsWith('.mp4') && !res.data.url.endsWith('.webm')) {
         setDog(res.data.url);
@@ -43,18 +50,28 @@ function Home() {
   }
 
   function getAdvice() {
-    // https://api.adviceslip.com/
-    axios.get('https://api.adviceslip.com/advice').then(res => {
-      setAdvice(res.data.slip.advice);
+    axios.get('https://www.boredapi.com/api/activity', options).then(res => {
+      setAdvice(res.data.activity);
     });
   }
 
-  function getRonQuote() {
+  function getCatFact() {
     axios
-      .get('https://ron-swanson-quotes.herokuapp.com/v2/quotes', options)
+      .get('https://catfact.ninja/fact', options)
       .then(res => {
-        setRonQuote(res.data);
+        setCatFact(res.data.fact);
       });
+  }
+
+  function getBtc() {
+    console.log('Calling Bitcoin');
+    axios.get('https://api.coindesk.com/v1/bpi/currentprice.json').then(res => {
+      setBtc({
+        USD: res.data.bpi.USD.rate,
+        GBP: res.data.bpi.GBP.rate,
+        EUR: res.data.bpi.EUR.rate,
+      });
+    });
   }
 
   const zoom = true;
@@ -79,7 +96,7 @@ function Home() {
           container
           className={classes.grid}
           spacing={2}
-          justify="space-evenly"
+          justifyContent="space-evenly"
         >
           <Grid item md={6} xs={12}>
             <Typography
@@ -119,7 +136,85 @@ function Home() {
               align="center"
               gutterBottom
             >
-              Free Advice
+              Bitcoin Live Price Tracker
+            </Typography>
+            <Paper elevation={8} className={classes.primaryDark}>
+              <Grid
+                container
+                alignItems="center"
+                justifyContent="space-evenly"
+                className={classes.smallPadding}
+              >
+                <Grid item md={6} xs={12}>
+                  <img style={{ maxWidth: '100%' }} src={Bitcoin} />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                  <Paper elevation={8}>
+                    <Typography
+                      variant="h5"
+                      color="textSecondary"
+                      align="center"
+                      className={classes.smallPadding}
+                    >
+                      United States Dollar<br/>
+                    &#36;{btc.USD || 'Loading...'}
+                    </Typography>
+                  </Paper>
+                  {/* For the gutterbottom space */}
+                  <Typography variant="h5" gutterBottom>
+                    {''}
+                  </Typography>
+                  <Paper elevation={8}>
+                    <Typography
+                      variant="h5"
+                      color="textSecondary"
+                      align="center"
+                      className={classes.smallPadding}
+                    >
+                      British Pound Sterling<br/>
+                    &pound;{btc.GBP || 'Loading...'}
+                    </Typography>
+                  </Paper>
+                  {/* For the gutterbottom space */}
+                  <Typography variant="h5" gutterBottom>
+                    {''}
+                  </Typography>
+                  <Paper elevation={8}>
+                    <Typography
+                      variant="h5"
+                      color="textSecondary"
+                      align="center"
+                      className={classes.smallPadding}
+                    >
+                      Euro <br/>
+                    &euro;{btc.EUR || 'Loading...'}
+                    </Typography>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Container>
+      {/* For the gutterbottom space */}
+      <Typography variant="h5" gutterBottom>
+        {''}
+      </Typography>
+      <Container>
+        <Grid
+          container
+          className={classes.grid}
+          spacing={2}
+          justifyContent="space-evenly"
+        >
+          <Grid item md={6} xs={12}>
+            <Typography
+              variant="h5"
+              color="textPrimary"
+              align="center"
+              gutterBottom
+            >
+              Feeling Bored?
             </Typography>
             <Paper elevation={8}>
               <Typography
@@ -137,19 +232,17 @@ function Home() {
               fullWidth
               onClick={() => getAdvice()}
             >
-              I need more advice
+              Find another activity
             </Button>
-            {/* For the gutterbottom space */}
-            <Typography variant="h5" gutterBottom>
-              {''}
-            </Typography>
+          </Grid>
+          <Grid item md={6} xs={12}>
             <Typography
               variant="h5"
               color="textPrimary"
               align="center"
               gutterBottom
             >
-              Ron Swanson
+              Cat Facts
             </Typography>
             <Paper elevation={8}>
               <Typography
@@ -159,16 +252,16 @@ function Home() {
                 className={classes.smallPadding}
                 gutterBottom
               >
-                {RonQuote || 'Loading...'}
+                {catFact || 'Loading...'}
               </Typography>
             </Paper>
             <Button
               variant="contained"
               color="secondary"
               fullWidth
-              onClick={() => getRonQuote()}
+              onClick={() => getCatFact()}
             >
-              I need more Ron wisdom
+              New Cat Fact
             </Button>
           </Grid>
         </Grid>

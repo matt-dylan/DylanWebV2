@@ -1,4 +1,5 @@
 import Alps from './alps.jpg';
+import Bitcoin from './Bitcoin.png';
 import Coffee from './coffee.jpg';
 import DenverDylan from './denver_dylan.jpg';
 import France from './france.jpg';
@@ -16,6 +17,7 @@ import Water from './water.jpg';
 
 export {
   Alps,
+  Bitcoin,
   Coffee,
   DenverDylan,
   France,

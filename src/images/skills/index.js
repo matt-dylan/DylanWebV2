@@ -11,7 +11,7 @@ import Python from './pythonlang.png';
 import ReactIcon from './react.png';
 import Scrum from './scrum.png';
 import SQL from './SQL.png';
-import UXUI from './ux-ui.png';
+import Salesforce from './salesforce.png';
 
 export {
   Agile,
@@ -27,5 +27,5 @@ export {
   ReactIcon,
   Scrum,
   SQL,
-  UXUI,
+  Salesforce,
 };

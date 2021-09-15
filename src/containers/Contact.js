@@ -62,7 +62,7 @@ function Contact() {
 
   return (
     <div id="Contact" className={`${classes.root} ${classes.contactParallax}`}>
-      <Grid container spacing={3} justify="center">
+      <Grid container spacing={3} justifyContent="center">
         <Grid item xs={12}>
           <Paper elevation={3} className={classes.contactForm}>
             <Container>
@@ -70,9 +70,16 @@ function Contact() {
                 variant="h4"
                 color="primary"
                 align="center"
-                gutterBottom
               >
                 Contact
+              </Typography>
+              <Typography
+                variant="h6"
+                color="primary"
+                align="center"
+                gutterBottom
+              >
+                Interested to know more? Feel free to reach out and I will get back to you!
               </Typography>
             </Container>
             <form

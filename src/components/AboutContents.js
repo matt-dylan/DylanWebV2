@@ -20,8 +20,8 @@ const AboutContents = () => {
           className={classes.smallPadding}
           gutterBottom
         >
-          Specializes in Web development, with a working background in the
-          information technology industry for over three and a half years.
+          Specializes in Web development and Salesforce CRM technologies, with a working background in the
+          information technology industry for over five and a half years.
         </Typography>
       </Paper>
 
@@ -36,7 +36,7 @@ const AboutContents = () => {
           className={classes.smallPadding}
           gutterBottom
         >
-          Developing technical solutions as a Consultant at Fenway Group.
+          Developing technical solutions as a Salesforce Developer II at GM Financial.
         </Typography>
       </Paper>
 
@@ -57,7 +57,7 @@ const AboutContents = () => {
       <Grid
         container
         direction="row"
-        justify="center"
+        justifyContent="center"
         alignItems="center"
         className={classes.smallPadding}
         spacing={2}

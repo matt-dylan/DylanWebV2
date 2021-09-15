@@ -25,7 +25,7 @@ function About() {
           <Grid item sm={6} xs={12}>
             {/* For the gutterbottom space */}
             <Typography variant="h5" className="hidden" gutterBottom>
-              dylanwhitlock.com
+              mdwhitlock.com
             </Typography>
             <GridPhotos />
           </Grid>

@@ -12,7 +12,7 @@ import {
   ReactIcon,
   Scrum,
   SQL,
-  UXUI,
+  Salesforce,
 } from '../images/skills';
 import { useStyles } from '../style/js/useStyles';
 
@@ -63,8 +63,8 @@ const skillItems = [
     image: SQL,
   },
   {
-    title: 'UX/UI',
-    image: UXUI,
+    title: 'Salesforce',
+    image: Salesforce,
   },
 ];
 
@@ -82,7 +82,6 @@ function Skills() {
     var isVisible = elemTop >= 0 && elemBottom <= window.innerHeight;
     // Partially visible elements return true:
     isVisible = elemTop < window.innerHeight && elemBottom >= 0;
-    // return isVisible;
     if (isVisible) {
       setChecked(isVisible);
       removeListener();

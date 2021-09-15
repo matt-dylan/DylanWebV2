@@ -80,7 +80,7 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.main,
     maxWidth: '1280px',
   },
-  gridList: {
+  imageList: {
     width: 700,
     height: 'auto',
   },
