@@ -90,6 +90,9 @@ export const useStyles = makeStyles(theme => ({
   h4: {
     padding: theme.spacing(1),
   },
+  input: {
+    color: '#000'
+  },
   listIcon: {
     color: '#fff',
     textDecoration: 'none',
