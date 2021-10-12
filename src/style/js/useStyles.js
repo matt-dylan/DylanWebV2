@@ -153,18 +153,18 @@ export const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
-  textColor: {
-    color: theme.palette.primary.main,
-    '&:hover': {
-      borderColor: theme.palette.secondary.dark,
-    },
-    "& .MuiInputBase-root": {
-      color: theme.palette.primary.main,
-      "& input": {
-        color: theme.palette.primary.main
-      }
-    },
-  },
+  // textColor: {
+  //   color: theme.palette.primary.main,
+  //   '&:hover': {
+  //     borderColor: theme.palette.secondary.dark,
+  //   },
+  //   "& .MuiInputBase-root": {
+  //     color: theme.palette.primary.main,
+  //     "& input": {
+  //       color: theme.palette.primary.main
+  //     }
+  //   },
+  // },
   wrapper: {
     transform: 'translateY(calc(100vh - 85vh))',
     minHeight: '425px',
