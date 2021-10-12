@@ -90,9 +90,6 @@ export const useStyles = makeStyles(theme => ({
   h4: {
     padding: theme.spacing(1),
   },
-  input: {
-    color: '#000'
-  },
   listIcon: {
     color: '#fff',
     textDecoration: 'none',
@@ -161,6 +158,12 @@ export const useStyles = makeStyles(theme => ({
     '&:hover': {
       borderColor: theme.palette.secondary.dark,
     },
+    "& .MuiInputBase-root": {
+      color: theme.palette.primary.main,
+    },
+    "& .MuiFormLabel-root": {
+      color: theme.palette.primary.main
+    }
   },
   wrapper: {
     transform: 'translateY(calc(100vh - 85vh))',

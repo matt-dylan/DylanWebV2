@@ -95,7 +95,7 @@ function Contact() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     InputProps={{
-                      className: classes.input,
+                      className: classes.textColor,
                     }}
                     id="firstName"
                     label="First Name"
@@ -116,7 +116,7 @@ function Contact() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     InputProps={{
-                      className: classes.input,
+                      className: classes.textColor,
                     }}
                     id="lastName"
                     label="Last Name"
@@ -137,7 +137,7 @@ function Contact() {
                 <Grid item xs={12}>
                   <TextField
                     InputProps={{
-                      className: classes.input,
+                      className: classes.textColor,
                     }}
                     id="email"
                     label="Email Address"
@@ -158,7 +158,7 @@ function Contact() {
                 <Grid item xs={12}>
                   <TextField
                     InputProps={{
-                      className: classes.input,
+                      className: classes.textColor,
                     }}
                     id="message"
                     label="Message"
