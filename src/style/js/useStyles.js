@@ -160,10 +160,10 @@ export const useStyles = makeStyles(theme => ({
     },
     "& .MuiInputBase-root": {
       color: theme.palette.primary.main,
+      "& input": {
+        color: theme.palette.primary.main
+      }
     },
-    "& .MuiFormLabel-root": {
-      color: theme.palette.primary.main
-    }
   },
   wrapper: {
     transform: 'translateY(calc(100vh - 85vh))',
